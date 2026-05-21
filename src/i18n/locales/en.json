@@ -1,0 +1,114 @@
+{
+  "app": {
+    "name": "Korenny Car",
+    "tagline": "Car sales and booking platform in Mauritania"
+  },
+  "nav": {
+    "home": "Home",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "profile": "Profile",
+    "search": "Search for a car..."
+  },
+  "home": {
+    "title": "Find Your Dream Car",
+    "subtitle": "The best cars at the best prices in Mauritania",
+    "all": "All",
+    "sedan": "Sedan",
+    "suv": "SUV",
+    "sports": "Sports",
+    "luxury": "Luxury",
+    "electric": "Electric",
+    "available": "Available",
+    "reserved": "Reserved",
+    "price": "MRU"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "submit": "Sign In",
+    "create": "Create Account",
+    "logout": "Sign Out",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "backToLogin": "Sign In",
+    "backToRegister": "Create Account"
+  },
+  "car": {
+    "year": "Year",
+    "type": "Type",
+    "brand": "Brand",
+    "description": "Description",
+    "addToCart": "Add to Cart",
+    "bookWhatsApp": "Book via WhatsApp",
+    "addedToCart": "Added to cart",
+    "alreadyInCar": "Already in cart"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "remove": "Remove"
+  },
+  "payment": {
+    "title": "Complete Payment",
+    "subtitle": "Pay via Bankily",
+    "accountNumber": "Account Number",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "confirmText": "After completing the payment, press the button below",
+    "confirmBtn": "I Have Paid",
+    "success": "Your order has been confirmed! We will contact you soon",
+    "backToHome": "Back to Home"
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "No cars in wishlist",
+    "add": "Add to Wishlist"
+  },
+  "profile": {
+    "title": "Profile",
+    "language": "Language",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "adminPanel": "Car Admin Panel",
+    "superAdminPanel": "User Admin Panel",
+    "messages": "Messages"
+  },
+  "admin": {
+    "carsTitle": "Car Management",
+    "usersTitle": "User Management",
+    "addCar": "Add Car",
+    "editCar": "Edit Car",
+    "deleteCar": "Delete Car",
+    "deleteUser": "Delete User",
+    "carName": "Car Name",
+    "carBrand": "Brand",
+    "carCarType": "Type",
+    "carPrice": "Price (MRU)",
+    "carYear": "Year",
+    "carDesc": "Description",
+    "carImage": "Image URL",
+    "carStatus": "Status",
+    "save": "Save",
+    "cancel": "Cancel",
+    "pendingOrders": "Pending Orders",
+    "confirmOrder": "Confirm Order"
+  },
+  "chat": {
+    "title": "Chat",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "withAdmin": "Chat with Admin"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry"
+  }
+}

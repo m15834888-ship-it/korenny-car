@@ -1,0 +1,114 @@
+{
+  "app": {
+    "name": "كورني كار",
+    "tagline": "منصة بيع وحجز السيارات في موريتانيا"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "cart": "السلة",
+    "wishlist": "المفضلة",
+    "profile": "حسابي",
+    "search": "ابحث عن سيارة..."
+  },
+  "home": {
+    "title": "اكتشف سيارتك المثالية",
+    "subtitle": "أفضل السيارات بأفضل الأسعار في موريتانيا",
+    "all": "الكل",
+    "sedan": "سيدان",
+    "suv": "دفع رباعي",
+    "sports": "رياضية",
+    "luxury": "فاخرة",
+    "electric": "كهربائية",
+    "available": "متاح",
+    "reserved": "محجوز",
+    "price": "أوقية"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "حساب جديد",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "name": "الاسم الكامل",
+    "submit": "دخول",
+    "create": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "backToLogin": "تسجيل الدخول",
+    "backToRegister": "إنشاء حساب جديد"
+  },
+  "car": {
+    "year": "السنة",
+    "type": "النوع",
+    "brand": "الماركة",
+    "description": "الوصف",
+    "addToCart": "أضف للسلة",
+    "bookWhatsApp": "احجز عبر واتساب",
+    "addedToCart": "تمت الإضافة للسلة",
+    "alreadyInCar": "موجود بالفعل في السلة"
+  },
+  "cart": {
+    "title": "سلة المشتريات",
+    "empty": "السلة فارغة",
+    "total": "الإجمالي",
+    "checkout": "ادفع الآن",
+    "remove": "إزالة"
+  },
+  "payment": {
+    "title": "إتمام الدفع",
+    "subtitle": "الدفع عبر بنكيلي / Bankily",
+    "accountNumber": "رقم الحساب",
+    "copy": "نسخ",
+    "copied": "تم النسخ!",
+    "confirmText": "بعد إتمام الدفع، اضغط الزر أدناه",
+    "confirmBtn": "لقد دفعت",
+    "success": "تم تأكيد طلبك بنجاح! سنتواصل معك قريباً",
+    "backToHome": "العودة للرئيسية"
+  },
+  "wishlist": {
+    "title": "المفضلة",
+    "empty": "لا توجد سيارات في المفضلة",
+    "add": "أضف للمفضلة"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح",
+    "adminPanel": "لوحة إدارة السيارات",
+    "superAdminPanel": "لوحة إدارة المستخدمين",
+    "messages": "الرسائل"
+  },
+  "admin": {
+    "carsTitle": "إدارة السيارات",
+    "usersTitle": "إدارة المستخدمين",
+    "addCar": "إضافة سيارة",
+    "editCar": "تعديل سيارة",
+    "deleteCar": "حذف السيارة",
+    "deleteUser": "حذف المستخدم",
+    "carName": "اسم السيارة",
+    "carBrand": "الماركة",
+    "carType": "النوع",
+    "carPrice": "السعر (أوقية)",
+    "carYear": "السنة",
+    "carDesc": "الوصف",
+    "carImage": "رابط الصورة",
+    "carStatus": "الحالة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "pendingOrders": "الطلبات المعلقة",
+    "confirmOrder": "تأكيد الطلب"
+  },
+  "chat": {
+    "title": "الدردشة",
+    "placeholder": "اكتب رسالتك...",
+    "send": "إرسال",
+    "withAdmin": "الدردشة مع الإدارة"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "retry": "إعادة المحاولة"
+  }
+}

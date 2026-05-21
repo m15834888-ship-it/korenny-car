@@ -1,0 +1,114 @@
+{
+  "app": {
+    "name": "Korenny Car",
+    "tagline": "Plateforme de vente et réservation de voitures en Mauritanie"
+  },
+  "nav": {
+    "home": "Accueil",
+    "cart": "Panier",
+    "wishlist": "Favoris",
+    "profile": "Profil",
+    "search": "Rechercher une voiture..."
+  },
+  "home": {
+    "title": "Trouvez Votre Voiture de Rêve",
+    "subtitle": "Les meilleures voitures aux meilleurs prix en Mauritanie",
+    "all": "Tout",
+    "sedan": "Berline",
+    "suv": "SUV",
+    "sports": "Sport",
+    "luxury": "Luxe",
+    "electric": "Électrique",
+    "available": "Disponible",
+    "reserved": "Réservé",
+    "price": "MRU"
+  },
+  "auth": {
+    "login": "Se Connecter",
+    "register": "Créer un Compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "name": "Nom Complet",
+    "submit": "Connexion",
+    "create": "Créer le Compte",
+    "logout": "Déconnexion",
+    "noAccount": "Pas de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "backToLogin": "Connexion",
+    "backToRegister": "Créer un compte"
+  },
+  "car": {
+    "year": "Année",
+    "type": "Type",
+    "brand": "Marque",
+    "description": "Description",
+    "addToCart": "Ajouter au Panier",
+    "bookWhatsApp": "Réserver via WhatsApp",
+    "addedToCart": "Ajouté au panier",
+    "alreadyInCar": "Déjà dans le panier"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "checkout": "Payer",
+    "remove": "Retirer"
+  },
+  "payment": {
+    "title": "Finaliser le Paiement",
+    "subtitle": "Payer via Bankily",
+    "accountNumber": "Numéro de Compte",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "confirmText": "Après avoir effectué le paiement, appuyez sur le bouton ci-dessous",
+    "confirmBtn": "J'ai Payé",
+    "success": "Votre commande a été confirmée ! Nous vous contacterons bientôt",
+    "backToHome": "Retour à l'accueil"
+  },
+  "wishlist": {
+    "title": "Favoris",
+    "empty": "Aucune voiture dans les favoris",
+    "add": "Ajouter aux Favoris"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Langue",
+    "theme": "Thème",
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair",
+    "adminPanel": "Admin Voitures",
+    "superAdminPanel": "Admin Utilisateurs",
+    "messages": "Messages"
+  },
+  "admin": {
+    "carsTitle": "Gestion des Voitures",
+    "usersTitle": "Gestion des Utilisateurs",
+    "addCar": "Ajouter Voiture",
+    "editCar": "Modifier Voiture",
+    "deleteCar": "Supprimer Voiture",
+    "deleteUser": "Supprimer Utilisateur",
+    "carName": "Nom",
+    "carBrand": "Marque",
+    "carCarType": "Type",
+    "carPrice": "Prix (MRU)",
+    "carYear": "Année",
+    "carDesc": "Description",
+    "carImage": "URL Image",
+    "carStatus": "Statut",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "pendingOrders": "Commandes en Attente",
+    "confirmOrder": "Confirmer"
+  },
+  "chat": {
+    "title": "Chat",
+    "placeholder": "Écrivez votre message...",
+    "send": "Envoyer",
+    "withAdmin": "Chat avec l'Admin"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer"
+  }
+}
