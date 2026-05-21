@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <div className="pb-32">
       {/* Hero */}
-      <div className="relative px-5 pt-10 pb-6 mb-2" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%)' }}>
+      <div className="relative px-5 pt-10 pb-8 mb-4" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%)' }}>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#D4AF37' }}>
           {t('home.title')}
@@ -47,16 +47,16 @@ export default function HomePage() {
             style={{ background: 'rgba(20, 20, 24, 0.8)', border: '1px solid rgba(212, 175, 55, 0.2)', color: '#e0e0e5', paddingInlineStart: '52px', paddingInlineEnd: '20px', backdropFilter: 'blur(10px)' }} />
         </motion.div>
 
-        {/* Filters — فلاتر كبيرة ومريحة */}
+        {/* Filters — أزرار كبيرة ومريحة */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-          className="flex flex-wrap gap-4" style={{ scrollbarWidth: 'none' }}>
+          className="flex flex-wrap gap-4 pb-4">
           {FILTERS.map(f => (
             <button key={f} onClick={() => setFilter(f)}
               className="px-8 py-4 rounded-2xl text-base font-bold whitespace-nowrap transition-all duration-300"
               style={{
                 background: filter === f ? 'linear-gradient(135deg, #D4AF37, #B08D2A)' : 'rgba(42, 42, 48, 0.6)',
                 color: filter === f ? '#0c0c0e' : '#8888a0',
-                border: filter === f ? 'none' : '1px solid rgba(212, 175, 55, 0.1)',
+                border: filter === f ? '2px solid #D4AF37' : '2px solid rgba(212, 175, 55, 0.15)',
                 boxShadow: filter === f ? '0 4px 15px rgba(212, 175, 55, 0.3)' : 'none',
                 minWidth: '80px',
                 textAlign: 'center',
