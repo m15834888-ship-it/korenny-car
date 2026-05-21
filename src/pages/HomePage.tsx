@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useApp, type Car } from '../store/AppContext';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Search, Heart, ShoppingCart, Check } from 'lucide-react';
+import { Search, Heart, Check, Plus } from 'lucide-react';
 
 const FILTERS = ['all', 'Sedan', 'SUV', 'Sports', 'Luxury', 'Electric'] as const;
 
@@ -47,18 +48,17 @@ export default function HomePage() {
             style={{ background: 'rgba(20, 20, 24, 0.8)', border: '1px solid rgba(212, 175, 55, 0.2)', color: '#e0e0e5', paddingInlineStart: '52px', paddingInlineEnd: '20px', backdropFilter: 'blur(10px)' }} />
         </motion.div>
 
-        {/* Filters — أزرار كبيرة ومريحة */}
+        {/* Filters — أزرار كبيرة وموزعة بشكل جميل */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-          className="flex flex-wrap gap-4 pb-4">
+          className="flex flex-wrap gap-3 pb-4">
           {FILTERS.map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className="px-8 py-4 rounded-2xl text-base font-bold whitespace-nowrap transition-all duration-300"
+              className="px-7 py-3.5 rounded-2xl text-sm font-bold whitespace-nowrap transition-all duration-300 flex-1 min-w-[calc(33%-8px)] md:flex-none"
               style={{
                 background: filter === f ? 'linear-gradient(135deg, #D4AF37, #B08D2A)' : 'rgba(42, 42, 48, 0.6)',
                 color: filter === f ? '#0c0c0e' : '#8888a0',
-                border: filter === f ? '2px solid #D4AF37' : '2px solid rgba(212, 175, 55, 0.15)',
+                border: filter === f ? '2px solid #D4AF37' : '2px solid rgba(212, 175, 55, 0.1)',
                 boxShadow: filter === f ? '0 4px 15px rgba(212, 175, 55, 0.3)' : 'none',
-                minWidth: '80px',
                 textAlign: 'center',
               }}>
               {filterLabel(f)}
@@ -86,6 +86,7 @@ export default function HomePage() {
 function CarCard({ car, index }: { car: Car; index: number }) {
   const { t } = useTranslation();
   const { addToCart, toggleWishlist, isInWishlist, isInCart } = useApp();
+  const navigate = useNavigate();
   const [imgError, setImgError] = useState(false);
   const inWishlist = isInWishlist(car.id);
   const inCart = isInCart(car.id);
@@ -95,7 +96,8 @@ function CarCard({ car, index }: { car: Car; index: number }) {
       className="rounded-2xl overflow-hidden group"
       style={{ background: 'rgba(20, 20, 24, 0.8)', border: '1px solid rgba(212, 175, 55, 0.1)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
 
-      <div className="relative aspect-[4/3] overflow-hidden">
+      {/* Image — قابلة للنقر للتفاصيل */}
+      <div className="relative aspect-[4/3] overflow-hidden cursor-pointer" onClick={() => navigate(`/car/${car.id}`)}>
         {!imgError ? (
           <img src={car.image_url} alt={car.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             onError={() => setImgError(true)} />
@@ -121,20 +123,22 @@ function CarCard({ car, index }: { car: Car; index: number }) {
       </div>
 
       <div className="p-5">
-        <h3 className="text-base font-bold truncate mb-1" style={{ color: '#e0e0e5' }}>{car.name}</h3>
+        <h3 className="text-base font-bold truncate mb-1 cursor-pointer hover:underline" style={{ color: '#e0e0e5' }} onClick={() => navigate(`/car/${car.id}`)}>{car.name}</h3>
         <p className="text-xs mb-3" style={{ color: '#8888a0' }}>{car.brand} · {car.year}</p>
         <p className="text-base font-bold mb-4" style={{ color: '#D4AF37' }}>
           {car.price.toLocaleString()} <span className="text-xs font-normal">{t('home.price')}</span>
         </p>
 
+        {/* زر أضف للسلة — شكل أحلى */}
         <button onClick={() => addToCart(car)} disabled={inCart || car.status === 'reserved'}
           className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all duration-300 disabled:opacity-40"
           style={{
-            background: inCart ? 'rgba(34, 197, 94, 0.2)' : 'linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(176, 141, 42, 0.2))',
-            border: '1px solid rgba(212, 175, 55, 0.3)',
-            color: inCart ? '#22c55e' : '#D4AF37',
+            background: inCart ? 'rgba(34, 197, 94, 0.15)' : 'linear-gradient(135deg, #D4AF37, #B08D2A)',
+            border: inCart ? '2px solid rgba(34, 197, 94, 0.3)' : '2px solid #D4AF37',
+            color: inCart ? '#22c55e' : '#0c0c0e',
+            boxShadow: inCart ? 'none' : '0 4px 15px rgba(212, 175, 55, 0.25)',
           }}>
-          {inCart ? <Check className="w-5 h-5" /> : <ShoppingCart className="w-5 h-5" />}
+          {inCart ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
           {inCart ? t('car.addedToCart') : t('car.addToCart')}
         </button>
       </div>
