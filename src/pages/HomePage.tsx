@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <div className="pb-32">
       {/* Hero */}
-      <div className="relative px-5 pt-10 pb-8 mb-4" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%)' }}>
+      <div className="relative px-5 pt-10 pb-6 mb-2" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%)' }}>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#D4AF37' }}>
           {t('home.title')}
@@ -40,23 +40,26 @@ export default function HomePage() {
 
         {/* Search */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          className="relative mb-6">
+          className="relative mb-8">
           <Search className="absolute top-4 w-6 h-6" style={{ color: '#8888a0', [document.documentElement.dir === 'rtl' ? 'right' : 'left']: '16px' }} />
           <input type="text" placeholder={t('nav.search')} value={search} onChange={e => setSearch(e.target.value)}
             className="w-full py-4 rounded-2xl text-base outline-none transition-all focus:ring-2"
             style={{ background: 'rgba(20, 20, 24, 0.8)', border: '1px solid rgba(212, 175, 55, 0.2)', color: '#e0e0e5', paddingInlineStart: '52px', paddingInlineEnd: '20px', backdropFilter: 'blur(10px)' }} />
         </motion.div>
 
-        {/* Filters */}
+        {/* Filters — فلاتر كبيرة ومريحة */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-          className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
+          className="flex flex-wrap gap-4" style={{ scrollbarWidth: 'none' }}>
           {FILTERS.map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className="px-6 py-3 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 shrink-0"
+              className="px-8 py-4 rounded-2xl text-base font-bold whitespace-nowrap transition-all duration-300"
               style={{
                 background: filter === f ? 'linear-gradient(135deg, #D4AF37, #B08D2A)' : 'rgba(42, 42, 48, 0.6)',
                 color: filter === f ? '#0c0c0e' : '#8888a0',
                 border: filter === f ? 'none' : '1px solid rgba(212, 175, 55, 0.1)',
+                boxShadow: filter === f ? '0 4px 15px rgba(212, 175, 55, 0.3)' : 'none',
+                minWidth: '80px',
+                textAlign: 'center',
               }}>
               {filterLabel(f)}
             </button>
@@ -64,7 +67,7 @@ export default function HomePage() {
         </motion.div>
       </div>
 
-      {/* Cars Grid — responsive: 2 cols mobile, 3 cols tablet, 4 cols desktop */}
+      {/* Cars Grid */}
       <div className="px-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {filtered.map((car, i) => (
           <CarCard key={car.id} car={car} index={i} />
@@ -92,7 +95,6 @@ function CarCard({ car, index }: { car: Car; index: number }) {
       className="rounded-2xl overflow-hidden group"
       style={{ background: 'rgba(20, 20, 24, 0.8)', border: '1px solid rgba(212, 175, 55, 0.1)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
 
-      {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden">
         {!imgError ? (
           <img src={car.image_url} alt={car.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -104,14 +106,12 @@ function CarCard({ car, index }: { car: Car; index: number }) {
         )}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,12,14,0.8) 0%, transparent 50%)' }} />
 
-        {/* Status badge */}
         <span className="absolute top-3 px-3 py-1.5 rounded-full text-xs font-bold"
           style={{ background: car.status === 'available' ? 'rgba(34, 197, 94, 0.9)' : 'rgba(239, 68, 68, 0.9)', color: '#fff',
             [document.documentElement.dir === 'rtl' ? 'right' : 'left']: '12px' }}>
           {car.status === 'available' ? t('home.available') : t('home.reserved')}
         </span>
 
-        {/* Wishlist button */}
         <button onClick={(e) => { e.stopPropagation(); toggleWishlist(car.id); }}
           className="absolute top-3 w-10 h-10 rounded-full flex items-center justify-center transition-all"
           style={{ background: inWishlist ? 'rgba(239, 68, 68, 0.9)' : 'rgba(0,0,0,0.5)',
@@ -120,7 +120,6 @@ function CarCard({ car, index }: { car: Car; index: number }) {
         </button>
       </div>
 
-      {/* Info */}
       <div className="p-5">
         <h3 className="text-base font-bold truncate mb-1" style={{ color: '#e0e0e5' }}>{car.name}</h3>
         <p className="text-xs mb-3" style={{ color: '#8888a0' }}>{car.brand} · {car.year}</p>
@@ -128,7 +127,6 @@ function CarCard({ car, index }: { car: Car; index: number }) {
           {car.price.toLocaleString()} <span className="text-xs font-normal">{t('home.price')}</span>
         </p>
 
-        {/* زر أعرض وأكبر */}
         <button onClick={() => addToCart(car)} disabled={inCart || car.status === 'reserved'}
           className="w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all duration-300 disabled:opacity-40"
           style={{
