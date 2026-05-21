@@ -26,13 +26,13 @@ export default function HomePage() {
   };
 
   return (
-    <div className="pb-24">
+    <div className="pb-28">
       {/* Hero */}
-      <div className="relative px-4 pt-6 pb-4" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%)' }}>
+      <div className="relative px-5 pt-8 pb-6 mb-2" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, transparent 100%)' }}>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-2xl font-bold mb-1"
+          className="text-2xl font-bold mb-2"
           style={{ color: '#D4AF37' }}
         >
           {t('home.title')}
@@ -41,7 +41,7 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-sm mb-4"
+          className="text-sm mb-6"
           style={{ color: '#8888a0' }}
         >
           {t('home.subtitle')}
@@ -52,20 +52,20 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="relative mb-4"
+          className="relative mb-5"
         >
-          <Search className="absolute top-3.5 w-5 h-5" style={{ color: '#8888a0', [document.documentElement.dir === 'rtl' ? 'right' : 'left']: '12px' }} />
+          <Search className="absolute top-3.5 w-5 h-5" style={{ color: '#8888a0', [document.documentElement.dir === 'rtl' ? 'right' : 'left']: '14px' }} />
           <input
             type="text"
             placeholder={t('nav.search')}
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full py-3 rounded-xl text-sm outline-none transition-all focus:ring-2"
+            className="w-full py-3.5 rounded-xl text-sm outline-none transition-all focus:ring-2"
             style={{
               background: 'rgba(20, 20, 24, 0.8)',
               border: '1px solid rgba(212, 175, 55, 0.2)',
               color: '#e0e0e5',
-              paddingInlineStart: '44px',
+              paddingInlineStart: '48px',
               paddingInlineEnd: '16px',
               backdropFilter: 'blur(10px)',
             }}
@@ -77,14 +77,14 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"
+          className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide"
           style={{ scrollbarWidth: 'none' }}
         >
           {FILTERS.map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className="px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 shrink-0"
+              className="px-5 py-2.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 shrink-0"
               style={{
                 background: filter === f ? 'linear-gradient(135deg, #D4AF37, #B08D2A)' : 'rgba(42, 42, 48, 0.6)',
                 color: filter === f ? '#0c0c0e' : '#8888a0',
@@ -98,7 +98,7 @@ export default function HomePage() {
       </div>
 
       {/* Cars Grid */}
-      <div className="px-4 grid grid-cols-2 gap-3">
+      <div className="px-5 grid grid-cols-2 gap-4">
         {filtered.map((car, i) => (
           <CarCard key={car.id} car={car} index={i} />
         ))}
@@ -146,16 +146,15 @@ function CarCard({ car, index }: { car: Car; index: number }) {
             <span className="text-4xl">🚗</span>
           </div>
         )}
-        {/* Overlay gradient */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,12,14,0.8) 0%, transparent 50%)' }} />
 
         {/* Status badge */}
         <span
-          className="absolute top-2 px-2 py-0.5 rounded-full text-[10px] font-bold"
+          className="absolute top-3 px-2.5 py-1 rounded-full text-[10px] font-bold"
           style={{
             background: car.status === 'available' ? 'rgba(34, 197, 94, 0.9)' : 'rgba(239, 68, 68, 0.9)',
             color: '#fff',
-            [document.documentElement.dir === 'rtl' ? 'right' : 'left']: '8px',
+            [document.documentElement.dir === 'rtl' ? 'right' : 'left']: '10px',
           }}
         >
           {car.status === 'available' ? t('home.available') : t('home.reserved')}
@@ -164,10 +163,10 @@ function CarCard({ car, index }: { car: Car; index: number }) {
         {/* Wishlist button */}
         <button
           onClick={(e) => { e.stopPropagation(); toggleWishlist(car.id); }}
-          className="absolute top-2 w-8 h-8 rounded-full flex items-center justify-center transition-all"
+          className="absolute top-3 w-9 h-9 rounded-full flex items-center justify-center transition-all"
           style={{
             background: inWishlist ? 'rgba(239, 68, 68, 0.9)' : 'rgba(0,0,0,0.5)',
-            [document.documentElement.dir === 'rtl' ? 'left' : 'right']: '8px',
+            [document.documentElement.dir === 'rtl' ? 'left' : 'right']: '10px',
           }}
         >
           <Heart className="w-4 h-4" fill={inWishlist ? '#fff' : 'none'} color="#fff" />
@@ -175,24 +174,24 @@ function CarCard({ car, index }: { car: Car; index: number }) {
       </div>
 
       {/* Info */}
-      <div className="p-3">
-        <h3 className="text-sm font-bold truncate" style={{ color: '#e0e0e5' }}>{car.name}</h3>
-        <p className="text-[10px] mb-1" style={{ color: '#8888a0' }}>{car.brand} · {car.year}</p>
-        <p className="text-sm font-bold mb-2" style={{ color: '#D4AF37' }}>
+      <div className="p-4">
+        <h3 className="text-sm font-bold truncate mb-1" style={{ color: '#e0e0e5' }}>{car.name}</h3>
+        <p className="text-[10px] mb-2" style={{ color: '#8888a0' }}>{car.brand} · {car.year}</p>
+        <p className="text-sm font-bold mb-3" style={{ color: '#D4AF37' }}>
           {car.price.toLocaleString()} <span className="text-[10px] font-normal">{t('home.price')}</span>
         </p>
 
         <button
           onClick={() => addToCart(car)}
           disabled={inCart || car.status === 'reserved'}
-          className="w-full py-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-300 disabled:opacity-40"
+          className="w-full py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-40"
           style={{
             background: inCart ? 'rgba(34, 197, 94, 0.2)' : 'linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(176, 141, 42, 0.2))',
             border: '1px solid rgba(212, 175, 55, 0.3)',
             color: inCart ? '#22c55e' : '#D4AF37',
           }}
         >
-          {inCart ? <Check className="w-3.5 h-3.5" /> : <ShoppingCart className="w-3.5 h-3.5" />}
+          {inCart ? <Check className="w-4 h-4" /> : <ShoppingCart className="w-4 h-4" />}
           {inCart ? t('car.addedToCart') : t('car.addToCart')}
         </button>
       </div>
